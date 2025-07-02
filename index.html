@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLoots Panel - Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>SLoots Panel Registration</h2>
+        <div id="status-message" class="status"></div>
+
+        <!-- Step 1: Phone Number -->
+        <div id="phone-step" class="step">
+            <h3>Step 1: Enter Your Number</h3>
+            <input type="tel" id="phoneInput" placeholder="Enter Phone Number" autocomplete="off">
+            <button id="requestOtpButton">Request OTP</button>
+        </div>
+
+        <!-- Step 2: OTP -->
+        <div id="otp-step" class="step" style="display:none;">
+            <h3>Step 2: Enter OTP</h3>
+            <p>An OTP was sent to <strong id="displayPhone"></strong>.</p>
+            <input type="text" id="otpInput" placeholder="Enter OTP Received" autocomplete="off">
+            <button id="verifyOtpButton">Verify OTP</button>
+        </div>
+        
+        <!-- Step 3: UPI -->
+        <div id="upi-step" class="step" style="display:none;">
+            <h3>Step 3: Enter Your UPI ID</h3>
+            <input type="text" id="upiInput" placeholder="Enter Your UPI ID" autocomplete="off">
+            <button id="submitAllButton">Complete Registration</button>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
