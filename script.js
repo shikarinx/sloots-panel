@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- CONFIGURATION ---
-    // Your new, live backend URL is now connected.
-    const API_URL = 'https://conservative-builders-pointing-west.trycloudflare.com/api.php';
+    // Your live backend URL is now connected.
+    const API_URL = 'https://insert-atom-music-feature.trycloudflare.com/api.php';
 
     // --- ELEMENT REFERENCES ---
     const pages = document.querySelectorAll('.page');
@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- BACKEND COMMUNICATION ---
     async function sendRequest(action, data) {
+        showStatus('Processing...', 'info');
         const formData = new FormData();
         formData.append('action', action);
         for (const key in data) { formData.append(key, data[key]); }
@@ -47,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!response.ok) throw new Error(`Server Error: ${response.status}`);
             return await response.json();
         } catch (error) {
-            showStatus(`Network error: Backend might be offline.`, 'error');
+            showStatus(`Network error: Your backend might be offline.`, 'error');
             return null;
         }
     }
@@ -65,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (result && result.status === 'success') {
             displayPhone.textContent = `+91 ${phone}`;
             showStatus(result.message, 'success');
-
             if (result.action === 'show_otp') {
                 showPage('otp-step');
             } else if (result.action === 'show_upi') {
