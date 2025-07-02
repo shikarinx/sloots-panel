@@ -1,1 +1,0 @@
-# sloots-panel
