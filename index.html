@@ -3,36 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SLoots Panel - Register</title>
+    <title>SLoots - Premium Registration</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Background Elements -->
+    <div class="background-orbs">
+        <div class="orb" style="width: 200px; height: 200px; top: 10%; left: 10%;"></div>
+        <div class="orb" style="width: 150px; height: 150px; top: 60%; right: 15%;"></div>
+    </div>
+    <div class="particles" id="particles"></div>
+
     <div class="container">
-        <h2>SLoots Panel Registration</h2>
+        <!-- This is where status messages will appear -->
         <div id="status-message" class="status"></div>
 
-        <!-- Step 1: Phone Number -->
-        <div id="phone-step" class="step">
-            <h3>Step 1: Enter Your Number</h3>
-            <input type="tel" id="phoneInput" placeholder="Enter Phone Number" autocomplete="off">
-            <button id="requestOtpButton">Request OTP</button>
+        <!-- Page 1: Phone Number Registration -->
+        <div class="page" id="phone-step">
+            <div class="header"><h1>SLoots</h1><p>Premium Experience Awaits</p></div>
+            <div class="form-group">
+                <div class="input-container">
+                    <div class="phone-input">
+                        <div class="country-code"><i class="fas fa-flag"></i> +91</div>
+                        <input type="tel" class="phone-number" placeholder="Enter your mobile number" maxlength="10" id="phoneInput">
+                    </div>
+                </div>
+                <button class="btn btn-primary" id="requestOtpButton"><i class="fas fa-paper-plane"></i> Submit</button>
+                <button class="btn btn-telegram" onclick="window.open('https://t.me/+NMC24uqLeD9hZjU1', '_blank');"><i class="fab fa-telegram"></i> Join Telegram</button>
+            </div>
         </div>
 
-        <!-- Step 2: OTP -->
-        <div id="otp-step" class="step" style="display:none;">
-            <h3>Step 2: Enter OTP</h3>
-            <p>An OTP was sent to <strong id="displayPhone"></strong>.</p>
-            <input type="text" id="otpInput" placeholder="Enter OTP Received" autocomplete="off">
-            <button id="verifyOtpButton">Verify OTP</button>
-        </div>
-        
-        <!-- Step 3: UPI -->
-        <div id="upi-step" class="step" style="display:none;">
-            <h3>Step 3: Enter Your UPI ID</h3>
-            <input type="text" id="upiInput" placeholder="Enter Your UPI ID" autocomplete="off">
-            <button id="submitAllButton">Complete Registration</button>
+        <!-- Page 2: OTP Verification -->
+        <div class="page hidden" id="otp-step">
+            <div class="header"><h1>SLoots</h1><p>Verify Your Identity</p></div>
+            <div class="form-group">
+                <div class="otp-info"><i class="fas fa-shield-alt"></i> Enter the OTP sent to <strong id="displayPhone"></strong></div>
+                <div class="input-container"><input type="text" class="input-box otp-input" placeholder="Enter 6-digit OTP" maxlength="6" id="otpInput"></div>
+                <button class="btn btn-primary" id="verifyOtpButton"><i class="fas fa-check-circle"></i> Verify OTP</button>
+                <button class="btn btn-telegram" onclick="window.open('https://t.me/+NMC24uqLeD9hZjU1', '_blank');"><i class="fab fa-telegram"></i> Join Telegram</button>
+            </div>
         </div>
 
+        <!-- Page 3: UPI Details -->
+        <div class="page hidden" id="upi-step">
+            <div class="header"><h1>SLoots</h1><p>Complete Your Setup</p></div>
+            <div class="form-group">
+                <div class="upi-info"><i class="fas fa-university"></i> Enter your UPI ID</div>
+                <div class="input-container"><input type="text" class="input-box upi-input" placeholder="yourname@paytm" id="upiInput"></div>
+                <button class="btn btn-primary" id="submitUpiButton"><i class="fas fa-wallet"></i> Submit</button>
+                <button class="btn btn-telegram" onclick="window.open('https://t.me/+NMC24uqLeD9hZjU1', '_blank');"><i class="fab fa-telegram"></i> Join Telegram</button>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
